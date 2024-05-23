@@ -2,7 +2,7 @@ from flask import Flask, request, render_template, redirect, url_for
 import os
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = 'uploads'
+app.config['UPLOAD_FOLDER'] = '/parse_exel_to_db/uploads'
 app.config['ALLOWED_EXTENSIONS'] = {'xls', 'xlsx'}
 
 if not os.path.exists(app.config['UPLOAD_FOLDER']):
