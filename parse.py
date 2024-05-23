@@ -1,5 +1,7 @@
 from openpyxl import load_workbook
+import os
 
+UPLOAD_FOLDER = '/parse_exel_to_db/uploads/'
 
 def read_excel_file(file_path):
     try:
@@ -17,12 +19,15 @@ def read_excel_file(file_path):
             with open("log.txt", "a") as f:
                 f.write(f"Шаблон таблицы поменялся.\nПуть до несоответствующего файла: {file_path}\n")
             exit(0)
+        else:
+            print("OK")
         return data
 
     except Exception as e:
         print(f"Ошибка при чтении файла Excel: {e}")
         return None
 
+read_excel_file(UPLOAD_FOLDER+"0.xlsx")
 
 # file_path = "0.xlsx"  # Укажите путь к вашему файлу Excel
 # excel_data = read_excel_file(file_path)
