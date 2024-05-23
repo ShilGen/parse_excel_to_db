@@ -81,9 +81,10 @@ def parse_args():
 
 def main():
     args = parse_args()
-    DATABASE_URL = "postgresql://localhost:5432/exel"
-    engine = create_engine(DATABASE_URL)
+    DATABASE_URL = "postgresql://localhost:5432/wbdata"
+    #engine = create_engine(DATABASE_URL)
 
+    engine = create_engine('postgresql+psycopg2://parser:aq54Fre-98m@localhost:5432/wbdata')
     # Создаем таблицы
     # Base.metadata.create_all(engine)
 

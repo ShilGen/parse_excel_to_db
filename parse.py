@@ -1,7 +1,6 @@
 from openpyxl import load_workbook
-import os
 
-UPLOAD_FOLDER = '/parse_exel_to_db/uploads/'
+#UPLOAD_FOLDER = '/parse_exel_to_db/uploads/'
 
 def read_excel_file(file_path):
     try:
@@ -27,7 +26,7 @@ def read_excel_file(file_path):
         print(f"Ошибка при чтении файла Excel: {e}")
         return None
 
-read_excel_file(UPLOAD_FOLDER+"0.xlsx")
+#read_excel_file(UPLOAD_FOLDER+"0.xlsx")
 
 # file_path = "0.xlsx"  # Укажите путь к вашему файлу Excel
 # excel_data = read_excel_file(file_path)
