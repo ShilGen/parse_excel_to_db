@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template, redirect, url_for
 import os
+import time
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = '/parse_exel_to_db/uploads'
@@ -26,7 +27,8 @@ def upload_file():
     if file.filename == '':
         return redirect(request.url)
     if file and allowed_file(file.filename):
-        filename = file.filename
+        user_id = '1'
+        filename = user_id + '_' + str(time.time()).split('.')[0] + '.xlsx'
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         return 'Файл успешно загружен!'
     else:
@@ -35,3 +37,4 @@ def upload_file():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
