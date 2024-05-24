@@ -1,76 +1,10 @@
 import argparse
-from sqlalchemy import create_engine, Column, Integer, String, Float, Date, Numeric, ForeignKey
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+
+from models import Delivery
 from parse import read_excel_file
 from datetime import datetime
-
-Base = declarative_base()
-
-
-class Delivery(Base):
-    __schema__ = "public"
-    __tablename__ = 'productsales'
-
-    id = Column(Integer, primary_key=True)
-    # user_id = Column(Integer, ForeignKey('users.id'))
-    unloading_time = Column(Date)
-    deliverynumber = Column(Integer)
-    item = Column(String)
-    item_code = Column(Integer)
-    brand = Column(String)
-    supplier_article = Column(String)
-    name = Column(String)
-    size = Column(String)
-    barcode = Column(String)
-    document_type = Column(String)
-    payment_reason = Column(String)
-    order_date = Column(Date)
-    sale_date = Column(Date)
-    quantity = Column(Integer)
-    retail_price = Column(Float)
-    realized_price = Column(Float)
-    agreed_discount_percent = Column(Float)
-    promo_code_percent = Column(Float)
-    final_agreed_discount_percent = Column(Float)
-    retail_price_with_discount = Column(Float)
-    rating_reduction_percent = Column(Float)
-    promotion_reduction_percent = Column(Float)
-    permanent_customer_discount_percent = Column(Float)
-    base_commission_percent = Column(Float)
-    final_commission_percent = Column(Float)
-    commission_without_vat = Column(Float)
-    sales_commission_without_vat = Column(Float)
-    return_and_delivery_compensation = Column(Float)
-    acquiring_compensation = Column(Float)
-    wildberries_commission_without_vat = Column(Float)
-    vat_from_commission = Column(Float)
-    seller_payment = Column(Float)
-    delivery_count = Column(Integer)
-    return_count = Column(Integer)
-    delivery_service = Column(Float)
-    total_fines = Column(Float)
-    additional_payments = Column(Float)
-    logistics_fines_and_payments = Column(String)
-    mp_sticker = Column(String)
-    bank_name = Column(String)
-    office_number = Column(Integer)
-    delivery_office_name = Column(String)
-    partner_inn = Column(String)
-    partner = Column(String)
-    warehouse = Column(String)
-    country = Column(String)
-    box_type = Column(String)
-    customs_declaration_number = Column(String)
-    marking_code = Column(String)
-    shk = Column(String)
-    rid = Column(String)
-    srid = Column(String)
-    transportation_expense_compensation = Column(Float)
-    transportation_organizer = Column(String)
-    storage = Column(Float)
-    deductions = Column(Float)
-    paid_acceptance = Column(Float)
 
 
 def parse_args():
