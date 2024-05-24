@@ -17,9 +17,7 @@ def read_excel_file(file_path):
         if " ".join(data[0]) != pattern:
             with open("log.txt", "a") as f:
                 f.write(f"Шаблон таблицы поменялся.\nПуть до несоответствующего файла: {file_path}\n")
-            exit(0)
-        else:
-            print("OK")
+            return False
         return data
 
     except Exception as e:
