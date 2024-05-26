@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS ProductSales (
     Id INTEGER PRIMARY KEY,
 --     FOREIGN KEY ( user_id ) REFERENCES public.auth_group ( user_id ),
-    unloading_time DATE,
+    unloading_time TIMESTAMP,
     DeliveryNumber INTEGER,
     Item TEXT,
     item_code INTEGER,

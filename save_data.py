@@ -1,4 +1,3 @@
-import argparse
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -7,14 +6,8 @@ from parse import read_excel_file
 from datetime import datetime
 
 
-def parse_args():
-    parser = argparse.ArgumentParser(description='Process delivery data from a exel file.')
-    parser.add_argument('file_path', type=str, help='Path to the exel file containing delivery data')
-    return parser.parse_args()
 
-
-def main():
-    args = parse_args()
+def save_data(file_path):
     DATABASE_URL = "postgresql://localhost:5432/wbdata"
     #engine = create_engine(DATABASE_URL)
 
@@ -25,7 +18,8 @@ def main():
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    data = read_excel_file(args.file_path)
+    data = read_excel_file(file_path)
+    count_lines = len(data) - 1
     user_id = 1
     time = datetime.now()
     # print(data)
@@ -94,7 +88,3 @@ def main():
         session.add(delivery)
 
     session.commit()
-
-
-if __name__ == "__main__":
-    main()

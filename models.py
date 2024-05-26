@@ -1,5 +1,5 @@
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, Float, Date
+from sqlalchemy import Column, Integer, String, Float, Date, DateTime
 
 Base = declarative_base()
 
@@ -10,7 +10,7 @@ class Delivery(Base):
 
     id = Column(Integer, primary_key=True)
     # user_id = Column(Integer, ForeignKey('users.id'))
-    unloading_time = Column(Date)
+    unloading_time = Column(DateTime)
     deliverynumber = Column(Integer)
     item = Column(String)
     item_code = Column(Integer)

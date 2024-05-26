@@ -12,7 +12,7 @@ def read_excel_file(file_path):
 
         for row in sheet.iter_rows(values_only=True):
             data.append(row)
-        with open("example.txt", "r") as f:
+        with open("/parse_exel_to_db/example.txt", "r", encoding="utf-8") as f:
             pattern = f.readline()
         if " ".join(data[0]) != pattern:
             with open("log.txt", "a") as f:
