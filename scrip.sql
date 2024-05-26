@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS ProductSales (
     sales_commission_without_vat FLOAT,
     return_and_delivery_compensation FLOAT,
     acquiring_compensation FLOAT,
+    acquiring_comission FLOAT,
     wildberries_commission_without_vat FLOAT,
     vat_from_commission FLOAT,
     seller_payment FLOAT,

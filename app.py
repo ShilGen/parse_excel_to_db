@@ -33,8 +33,9 @@ def upload_file():
         filename = user_id + '_' + str(time.time()).split('.')[0] + '.xlsx'
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         if read_excel_file(str('/parse_exel_to_db/uploads/' + filename)):
-            save_data('/parse_exel_to_db/uploads/' + filename)
-        return 'Файл успешно загружен!'
+            result = save_data('/parse_exel_to_db/uploads/' + filename)
+            return f'Файл успешно загружен и данные сохранены в базу данных\nКоличество сохранённых строк: {result}'
+        return 'Непраильный формат содержимого файла'
     else:
         return 'Недопустимый тип файла. Пожалуйста, загрузите файл с расширением .xlsx или .xls'
 

@@ -39,6 +39,7 @@ class Delivery(Base):
     sales_commission_without_vat = Column(Float)
     return_and_delivery_compensation = Column(Float)
     acquiring_compensation = Column(Float)
+    acquiring_comission = Column(Float)
     wildberries_commission_without_vat = Column(Float)
     vat_from_commission = Column(Float)
     seller_payment = Column(Float)
